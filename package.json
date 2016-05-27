@@ -1,0 +1,28 @@
+{
+  "name": "file-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.0.0-rc.5",
+    "aws-sdk": "^2.3.15",
+    "body-parser": "^1.15.1",
+    "cloudinary": "^1.3.1",
+    "express": "^4.13.4",
+    "log": "^1.4.0",
+    "moment": "^2.13.0",
+    "mongoose": "^4.4.19",
+    "multer": "^1.1.0",
+    "node-restful": "^0.2.5",
+    "rc": "^1.1.6",
+    "redis": "^2.6.0-2",
+    "restify": "^4.1.0",
+    "uuid": "^2.0.2"
+  }
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gallery of Images</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--designe-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="includes/style.css">
+    <!--functionality-->
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/includes/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <h4 class="page-header" id="image-gallery">Gallery of Images</h4>
+
+                <h5 class="filter">View images by size: </h5>
+                <button type="button" class="btn btn-default">small</button>
+                <button type="button" class="btn btn-default">medium</button>
+                <button type="button" class="btn btn-default">large</button>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter by color
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Red</a></li>
+                        <li><a href="#">Blue</a></li>
+                        <li><a href="#">Yellow</a></li>
+                        <li><a href="#">Green</a></li>
+                        <li><a href="#">brown</a></li>
+                    </ul>
+                </div>
+                <br/>
+                <button type="button" id="onclickAdd" class="btn btn-default">Add New</button>
+            </div>
+            <!--Form -->
+            <div id="uploaddiv">
+                <form class="form" action="/images" method="post" enctype="multipart/form-data" id="upload">
+                    <fieldset>
+                        <h3>Upload New Image</h3>
+                        <hr/>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name"/>
+                        <br/>
+                        <label for="pic">Image:</label>
+                        <input type="file" id="pic" name="profilepic"/>
+                        <br/>
+                        <label for="description" id="descLabel">Description:</label>
+                        <input id="description" name="description"
+                               placeholder="Enter a short description about the picture">
+                        <br/>
+                        <input type="submit" id="uppic" value="upload"/>
+                        <input type="button" id="cancel" value="Cancel"/>
+                        <br/>
+                    </fieldset>
+                </form>
+            </div>
+            <br/>
+            <div>
+                <div id="gallery" class="col-md-offset-2 col-md-8">
+
+                    <template id="pic-template">
+                        <section data-id="{{_id}}">
+                            <h5>
+                                <strong>Upload by:</strong>
+                                <span class="noedit name">{{name}}</span>
+                                <input class="edit name"/>
+                            </h5>
+                            <h5>
+                                <strong>Description:</strong>
+                                <span class="noedit desc">{{description}}</span>
+                                <input class="edit desc"/>
+                            </h5>
+                            <h5>
+                                <strong>Dominant Color:</strong>
+                                <span class="noedit desc">{{dominateColor}}</span>
+                                <input class="edit desc"/>
+                            </h5>
+				<img class="noedit pic" data-id="{{dominateColor}}" src="{{originalImage}}">
+                            <input class="edit pic"/>
+                            <br/>
+                            <button class="remove">X</button>
+                            <button class="editPic noedit">Edit</button>
+                            <button class="saveEdit edit">Save</button>
+                            <button class="cancelEdit edit">Cancel</button>
+                        </section>
+                    </template>
+
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <p>Copyright &copy; <a href="#">Rotem&Atalia</a></p>
+            </div>
+        </footer>
+    </div>
+</div>
+<script>
+    (function () {
+        //	create();
+    })();
+</script>
+</body>
+</html>
+
