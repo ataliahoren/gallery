@@ -3,11 +3,17 @@ $(document).ready(function () {
     $('#onclickAdd').click(function (e) {
         e.preventDefault();
         $('#uploaddiv').show();
+	$('#name').removeAttr("disabled");
+	$('#name').attr("placeholder", "Enter your full name");
+	$('#name').val("");
+	$('#description').removeAttr("disabled");
+	$('#description').attr("placeholder", "Enter a short description about the picture");
+	$('#description').val("");
+        $('#formTitle').text("Upload New Image");
     });
     $('#cancel').click(function (e) {
         e.preventDefault();
         $('#uploaddiv').hide();
-        $('#formTitle').text("Add New");
     });
 });
 //data handling
