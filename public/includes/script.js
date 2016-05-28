@@ -53,7 +53,7 @@ $(document).ready(function () {
 	console.log("remove image: " + $section.attr('data-id'));
         $.ajax({
             type: 'DELETE',
-            url: $fullUrl2 + $section.attr('data-id'),
+            url: '/images/' + $section.attr('data-id'),
             success: function () {
                // alert('success delete s3');
                 $section.fadeOut(300, function () {

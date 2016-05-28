@@ -23,7 +23,7 @@ cloudinary.config({
 
 function remove(id, callback) {
     console.log("id to remove: " + id);
-    GalleryPic.findOne(id).then(function (obj) {
+    GalleryPic.findOne({_id: id}).then(function (obj) {
         console.log(obj);
         var imagesKeys = ['original', 'small', 'medium', 'large'].map(function (type) {
             return {
