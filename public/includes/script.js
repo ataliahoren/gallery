@@ -50,6 +50,7 @@ $(document).ready(function () {
     //remove pic
     $gallery.delegate('.remove', 'click', function () {
         var $section = $(this).closest('section');
+	console.log("remove image: " + $section.attr('data-id'));
         $.ajax({
             type: 'DELETE',
             url: '/images/' + $section.attr('data-id'),

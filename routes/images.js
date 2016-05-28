@@ -7,6 +7,7 @@ var GalleryPic = require('../models/gallerypic');
 
 module.exports = function (app) {
     app.delete("/images/:id", function (req, res, next) {
+	console.log("worker.remove(id): " + req.params.id);
 
         worker.remove(req.params.id, function() {
             res.end('');
