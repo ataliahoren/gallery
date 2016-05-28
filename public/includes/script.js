@@ -124,18 +124,21 @@ function PictureSize(str)
 	{
 		var src = $($allImg[i]).attr('src');
 		console.log("current scr: " + src);
-		console.log("ste: " + str);
-		/*var srcOriginal = src.split("_");
+		console.log("str: " + str);
+		var srcOriginal = src.split("_");
 		console.log(srcOriginal);
 		var sizeOriginalfull = srcOriginal[1];
 		console.log(sizeOriginalfull);
-		var sizeOriginalsplit = src.split(".");
+		var sizeOriginalsplit = sizeOriginalfull.split(".");
 		console.log(sizeOriginalsplit);
-		var sizeOriginal = sizeOriginalsplit[0];
-		console.log(sizeOriginal); */
+		var aa = sizeOriginalsplit[0];
+		//console.log(sizeOriginal);
 		//src.replace(src, str);
-//		src.replace(src, str);
-		$($allImg[i]).attr("src").replace(src, str);
+//		.replace(aa, str);
+		console.log("old src: " +aa);
+		var newsrc = $($allImg[i]).attr("src").replace(aa, str);
+		$($allImg[i]).attr("src", newsrc);
+		console.log("curr src: " +$($allImg[i]).attr("src"));
 	}
 }
 //user has chosen other size pic
@@ -145,12 +148,13 @@ function PictureSize(str)
 		var small = "small";
 		var medium = "medium";
 		var large = "large";
-		var regular = "regular";		
+		var original = "original";		
 		console.log($(this).text());
-		if ($(this).text() == "small") PictureSize("{{smallImage}}");	
-		else if ($(this).text() == "medium") PictureSize("{{mediumImage}}");
-		else if ($(this).text() == "large") PictureSize("{{largeImage}}");
-		else PictureSize("{{originalImage}}");
+		if ($(this).text() == "small") PictureSize(small);	
+		else if ($(this).text() == "medium") PictureSize(medium);
+		else if ($(this).text() == "large") PictureSize(large);
+		else if ($(this).text() == "original") PictureSize(original);
+		else PictureSize(original);
 	});
 /*********color handling***********/
 	//user has chosen color
@@ -158,13 +162,17 @@ function PictureSize(str)
 	 {
 		e.preventDefault();
 		var color = $(this).text();
+		//console.log("choosen color: " + color);
 	var $allImg = $("img").get();
 	var $allImgSize = $allImg.length
 		for (var i=0; i<$allImgSize; i++)
 			{
 
- 			       var $section = $(this).closest('section');
-				if ($($allImg[i]).attr("data-id") ==  color) $($section).show();
+ 			       var $section = $($allImg[i]).closest('section');
+				//console.log("img section id: " + $section.attr("data-id"));
+				//console.log("img curr color : " + $($allImg[i]).attr("data-id"));
+				if (color == "all") $($section.show());
+				else if ($($allImg[i]).attr("data-id") ==  color) $($section).show();
 				else  $($section).hide();
 			}
 	});
