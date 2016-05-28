@@ -9,7 +9,7 @@ Web client demo (1 html ﬁle, and js) that demonstrate the API.
 Using Cloudinary API to get dominant color and resizing
 
 <ul>to use it:
-<li<git clone https://github.com/ataliahoren/gallery.git</li>
+<li>git clone https://github.com/ataliahoren/gallery.git</li>
 <li>npm install</li>
 <li>create your own cardentials om AWS and create .photoGalleryrc file in root level</li>
 </ul>
