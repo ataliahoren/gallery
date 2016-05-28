@@ -7,6 +7,7 @@ $(document).ready(function () {
     $('#cancel').click(function (e) {
         e.preventDefault();
         $('#uploaddiv').hide();
+        $('#formTitle').text("Add New");
     });
 });
 //data handling
@@ -63,19 +64,37 @@ $(document).ready(function () {
             }
         });
     });
-    //edit pic
-    $gallery.delegate('.editPic', 'click', function () {
-		$("#uploaddiv").show();
+
+    //edit pic - metadata
+    $gallery.delegate('.editPic', 'click', function()
+	{
+		  
+		var $section = $(this).closest('section');  
+		$section.find('input.name').val( $section.find('span.name').html() );
+		$section.find('input.desc').val( $section.find('span.desc').html() );
+		$section.find('input.color').val( $section.find('span.color').html() );
+		$section.find('input.color').attr('disabled', 'disabled');
+		$section.find('input.pic').hide();
+		$section.addClass('edit');
+	});   
+
+    //edit pic - replace img
+    $gallery.delegate('.editPicImg', 'click', function () {
+	$("#uploaddiv").show();
+        $('#formTitle').text("Replace Image");
         var $section = $(this).closest('section');
         $("#uploaddiv").find('#name').val($section.find('span.name').html());
+	$("#uploaddiv").find('#name').attr('disabled', 'disabled');
         $("#uploaddiv").find('#description').val($section.find('span.desc').html());
-        $("#uploaddiv").find('i#pic').val($section.find('img.pic').attr('src'));
+	$("#uploaddiv").find('#description').attr('disabled', 'disabled');
+        $("#uploaddiv").find('#pic').val($section.find('img.pic').attr('src'));
         //$section.addClass('edit');
     });
 	
     //cancel edit
     $gallery.delegate('.cancelEdit', 'click', function () {
-        $(this).closest('section').removeClass('edit');
+	var $section = $(this).closest('section');  
+        $section.removeClass('edit');
     });
     //save changes pic
     $gallery.delegate('.saveEdit', 'click', function () {

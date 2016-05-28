@@ -69,7 +69,7 @@ border-radius:3px;
 padding:5px;
 }
 
-input[type=button]{
+input[type=button], input[type=submit]{
 background-color:#123456;
 border:1px solid white;
 font-family: 'Fauna One', serif;
@@ -107,7 +107,7 @@ display:none;
 z-index:80;
 }
 
-#onclickAdd, #uppic, #cancel, section button.edit , section button.noedit, .remove{
+#onclickAdd, input[type=submit], #uppic, #cancel, section button.edit , section button.noedit, .remove{
 padding:3px;
 cursor:pointer;
 color:white;
